@@ -1,83 +1,125 @@
+ <div align="center">
+
 QueryNest
 
-Your Documents. Your Knowledge. One Intelligent Workspace.
+AI-Powered Document Intelligence Platform
 
-QueryNest is an AI-powered document intelligence platform that allows users to upload PDF documents, ask questions about their content, and receive context-aware answers with relevant source references.
+Turn documents into answers.
+
+Upload your PDFs, ask questions in natural language, and get context-aware answers backed by relevant document sources.
+
+<br/>
+</div>
+
+⸻
 
 Overview
 
-QueryNest aims to make document understanding easier by combining Python, backend development, database management, and AI technologies.
+QueryNest is an AI-powered document intelligence platform designed to make information retrieval from PDF documents faster and more intuitive.
 
-The goal is to build a practical application that transforms static documents into searchable knowledge.
+Instead of manually searching through lengthy documents, users can upload files and ask questions in natural language. QueryNest aims to generate relevant answers using document context and provide source references for better transparency.
 
-Planned Features
+Key Features
 
-* PDF document upload and processing
-* Automatic text extraction
-* AI-powered question answering
-* Context-aware responses using RAG
-* Source references and page citations
-* Document management
-* Chat history
-* Responsive web interface
+* PDF Upload: Upload and process PDF documents.
+* Natural Language Q&A: Ask questions directly about document content.
+* Context-Aware Responses: Generate answers grounded in retrieved document information.
+* Source References: Connect answers to relevant document sections or pages.
+* Document Management: Organize and access uploaded documents.
+* Multi-Document Support: Ask questions across multiple documents.
+
+Features are planned; availability will be updated as development progresses.
 
 Technology Stack
 
-Technology	Purpose
-Python	Core development
-FastAPI	Backend API
-SQLite / PostgreSQL	Database
-PyMuPDF	PDF processing
-SQLAlchemy	Database management
-HTML, CSS, JavaScript	Frontend
-Embeddings and RAG	Document retrieval
-LLM API	AI responses
-Git & GitHub	Version control
+Layer	Technology
+Backend	Python, FastAPI
+Frontend	HTML, CSS, JavaScript
+Database	PostgreSQL / SQLite
+AI Integration	LLM API
+Document Processing	PDF Processing
+Retrieval	Embeddings, Vector Search, RAG
+Version Control	Git & GitHub
+
+Architecture
+
+                USER
+                  |
+                  v
+           WEB INTERFACE
+                  |
+                  v
+            FASTAPI SERVER
+                  |
+          +-------+-------+
+          |               |
+          v               v
+     PDF PROCESSING   DOCUMENT STORAGE
+          |
+          v
+     TEXT CHUNKING
+          |
+          v
+     EMBEDDINGS
+          |
+          v
+      VECTOR SEARCH
+          |
+          v
+      LLM RESPONSE
+          |
+          v
+   ANSWER + SOURCES
 
 Project Structure
 
-querynest/
+QueryNest/
+│
 ├── app/
+│   ├── routes/
+│   ├── services/
+│   ├── models/
+│   └── main.py
+│
 ├── frontend/
 ├── tests/
 ├── uploads/
+│
 ├── README.md
-├── LEARNING.md
-├── PROGRESS.md
+├── ROADMAP.md
 ├── requirements.txt
 └── .gitignore
 
-Getting Started
+Screenshots
 
-The installation and setup instructions will be added as the project develops.
+Screenshots will be added as the application UI is developed.
 
-Learning Objectives
+Project Goals
 
-* Build REST APIs using FastAPI.
-* Understand database integration.
-* Work with PDF processing.
-* Learn AI APIs and embeddings.
-* Implement Retrieval-Augmented Generation (RAG).
-* Practice testing and deployment.
-* Understand professional Git workflows.
+* Build a reliable document question-answering system.
+* Implement a retrieval-augmented generation (RAG) pipeline.
+* Provide source-grounded AI responses.
+* Develop a clean and responsive user interface.
+* Follow maintainable backend architecture and testing practices.
 
-Project Status
+Development Status
 
-Currently in the initial planning and setup stage.
+Currently in Development
 
-Future Improvements
+The project is being developed incrementally, starting with the core document-processing and question-answering workflow.
+
+Future Scope
 
 * User authentication
-* Multiple document support
-* Document summarization
-* Document comparison
-* Secure document storage
-* Production deployment
+* Conversation history
+* Multiple file formats
+* Improved retrieval accuracy
+* Document-level access management
 
-Author
+⸻
 
-Developed as an independent learning and portfolio project.
+<div align="center">
 
-License
+QueryNest · Built with Python and AI
 
-MIT License (to be added when finalized).
+</div>
