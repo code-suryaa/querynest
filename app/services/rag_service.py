@@ -31,7 +31,7 @@ def _generate_gemini_answer(question: str, matches: list[dict]) -> str:
     from google import genai
 
     api_key = os.getenv("GEMINI_API_KEY", "").strip()
-    model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip()
+    model_name = os.getenv("GEMINI_MODEL", "gemini-3.8-flash").strip()
     client = genai.Client(api_key=api_key)
 
     context_blocks = []
