@@ -1,12 +1,14 @@
-
 from fastapi import APIRouter
+from app.models.schemas import HealthResponse
+from app.services.rag_service import is_gemini_configured
 
-router = APIRouter()
+router = APIRouter(tags=["Health"])
 
 
-@router.get("/health")
+@router.get("/health", response_model=HealthResponse)
 def health_check():
-    return {
-        "status": "healthy",
-        "application": "QueryNest"
-    }
+    return HealthResponse(
+        status="ok",
+        app="QueryNest",
+        ai_mode="gemini" if is_gemini_configured() else "extractive-fallback",
+    )

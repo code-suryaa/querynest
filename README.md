@@ -1,125 +1,39 @@
- <div align="center">
+# QueryNest — Turn Documents into Answers
 
-QueryNest
+QueryNest is a lightweight, full-stack Document Intelligence platform built with **FastAPI**, **Python**, and **Vanilla HTML/CSS/JS**. Upload any PDF, ask questions in natural language, and get context-aware answers backed by exact **page references**.
 
-AI-Powered Document Intelligence Platform
+## Features
+- **PDF Upload & Page-Wise Extraction**: Validates PDFs, extracts text page-by-page using `pypdf`.
+- **Smart Overlapping Chunking**: Preserves page numbers across chunks for accurate citations.
+- **Fast Local Search + Gemini RAG**: Works immediately out-of-the-box with built-in TF-IDF retrieval, and upgrades automatically to **Gemini AI** answers when `GEMINI_API_KEY` is added to `.env`.
+- **Clean Web UI + Swagger Docs**: Built-in dark-mode frontend served directly by FastAPI, plus interactive API docs at `/docs`.
 
-Turn documents into answers.
+## Quick Start
 
-Upload your PDFs, ask questions in natural language, and get context-aware answers backed by relevant document sources.
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
 
-<br/>
-</div>
+# 2. (Optional, recommended) Add your Gemini API key
+cp .env.example .env
+# Edit .env and paste your GEMINI_API_KEY
 
-⸻
+# 3. Run the server
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
 
-Overview
+Open:
+- **App UI**: `http://localhost:8000`
+- **API Swagger Docs**: `http://localhost:8000/docs`
 
-QueryNest is an AI-powered document intelligence platform designed to make information retrieval from PDF documents faster and more intuitive.
+## Run Tests
+```bash
+pytest
+```
 
-Instead of manually searching through lengthy documents, users can upload files and ask questions in natural language. QueryNest aims to generate relevant answers using document context and provide source references for better transparency.
-
-Key Features
-
-* PDF Upload: Upload and process PDF documents.
-* Natural Language Q&A: Ask questions directly about document content.
-* Context-Aware Responses: Generate answers grounded in retrieved document information.
-* Source References: Connect answers to relevant document sections or pages.
-* Document Management: Organize and access uploaded documents.
-* Multi-Document Support: Ask questions across multiple documents.
-
-Features are planned; availability will be updated as development progresses.
-
-Technology Stack
-
-Layer	Technology
-Backend	Python, FastAPI
-Frontend	HTML, CSS, JavaScript
-Database	PostgreSQL / SQLite
-AI Integration	LLM API
-Document Processing	PDF Processing
-Retrieval	Embeddings, Vector Search, RAG
-Version Control	Git & GitHub
-
-Architecture
-
-                USER
-                  |
-                  v
-           WEB INTERFACE
-                  |
-                  v
-            FASTAPI SERVER
-                  |
-          +-------+-------+
-          |               |
-          v               v
-     PDF PROCESSING   DOCUMENT STORAGE
-          |
-          v
-     TEXT CHUNKING
-          |
-          v
-     EMBEDDINGS
-          |
-          v
-      VECTOR SEARCH
-          |
-          v
-      LLM RESPONSE
-          |
-          v
-   ANSWER + SOURCES
-
-Project Structure
-
-QueryNest/
-│
-├── app/
-│   ├── routes/
-│   ├── services/
-│   ├── models/
-│   └── main.py
-│
-├── frontend/
-├── tests/
-├── uploads/
-│
-├── README.md
-├── ROADMAP.md
-├── requirements.txt
-└── .gitignore
-
-Screenshots
-
-Screenshots will be added as the application UI is developed.
-
-Project Goals
-
-* Build a reliable document question-answering system.
-* Implement a retrieval-augmented generation (RAG) pipeline.
-* Provide source-grounded AI responses.
-* Develop a clean and responsive user interface.
-* Follow maintainable backend architecture and testing practices.
-
-Development Status
-
-Currently in Development
-
-The project is being developed incrementally, starting with the core document-processing and question-answering workflow.
-
-Future Scope
-
-* User authentication
-* Conversation history
-* Multiple file formats
-* Improved retrieval accuracy
-* Document-level access management
-
-⸻
-
-<div align="center">
-
-QueryNest · Built with Python and AI
-
-</div>
+## API Endpoints
+- `GET /health` — Server status & active AI mode
+- `POST /api/documents/upload` — Upload and index a PDF
+- `GET /api/documents` — List indexed documents
+- `DELETE /api/documents/{doc_id}` — Delete a document
+- `POST /api/query` — Ask a question and get an answer with page citations

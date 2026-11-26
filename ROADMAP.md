@@ -1,52 +1,17 @@
-QueryNest — Product Roadmap
+# QueryNest Roadmap
 
-Development Roadmap
+## Phase 1 — Core MVP (Completed)
+- [x] FastAPI backend & project architecture
+- [x] PDF upload validation & page-wise text extraction (`pypdf`)
+- [x] Page-aware overlapping text chunking
+- [x] Persistent local TF-IDF search & retrieval store
+- [x] `/api/query` endpoint with Gemini AI RAG + extractive fallback
+- [x] Dark-mode frontend UI with document switcher & page citations
+- [x] Basic `pytest` API test suite
 
-Phase 1 — Core Foundation
-
-* [ ]	Backend project setup
-* [ ]	API structure
-* [ ]	PDF upload endpoint
-* [ ]	PDF text extraction
-
-Phase 2 — Document Intelligence
-
-* [ ]	Text chunking pipeline
-* [ ]	Embedding generation
-* [ ]	Vector storage
-* [ ]	Semantic retrieval
-
-Phase 3 — AI Question Answering
-
-* [ ]	LLM integration
-* [ ]	Context-aware responses
-* [ ]	Source references
-* [ ]	Hallucination reduction
-
-Phase 4 — Frontend
-
-* [ ]	Responsive interface
-* [ ]	PDF upload interface
-* [ ]	Chat interface
-* [ ]	Document management
-
-Phase 5 — Reliability
-
-* [ ]	API validation
-* [ ]	Error handling
-* [ ]	Backend testing
-* [ ]	Security improvements
-
-Phase 6 — Deployment
-
-* [ ]	Production configuration
-* [ ]	Backend deployment
-* [ ]	Application deployment
-* [ ]	Public demo
-* [ ]	Documentation and screenshots
-
-⸻
-
-Current Status: Planning / Initial Setup
-
-Roadmap items will be marked complete only after implementation and verification. 
+## Phase 2 — Next Upgrades
+- [ ] OCR support for scanned/image-based PDFs
+- [ ] Dense vector embeddings (ChromaDB / FAISS / Gemini Embeddings)
+- [ ] Multi-turn chat memory per document
+- [ ] Highlighted PDF viewer side-by-side with citations
+- [ ] Deployment on Render / Railway

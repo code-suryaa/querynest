@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QueryNest — Turn Documents into Answers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">Q</div>
+        <div>
+          <h1>QueryNest</h1>
+          <p>Document Intelligence</p>
+        </div>
+      </div>
+
+      <div class="status-pill" id="modeBadge">Checking server...</div>
+
+      <div class="upload-box" id="dropZone">
+        <input type="file" id="fileInput" accept=".pdf" hidden />
+        <p class="upload-title">Upload PDF</p>
+        <p class="upload-sub">Click or drag a PDF here (max 15 MB)</p>
+        <button id="uploadBtn" class="btn-primary">Choose PDF</button>
+        <p class="upload-status" id="uploadStatus"></p>
+      </div>
+
+      <div class="docs-section">
+        <div class="docs-header">
+          <h2>Your Documents</h2>
+          <button id="allDocsBtn" class="chip active">All</button>
+        </div>
+        <ul id="docList" class="doc-list">
+          <li class="empty-state">No PDFs uploaded yet.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="chat-area">
+      <header class="chat-header">
+        <div>
+          <h2 id="activeScope">Searching: All Documents</h2>
+          <p>Ask any question in natural language and get page-backed answers.</p>
+        </div>
+        <a href="/docs" target="_blank" class="api-link">Swagger /docs ↗</a>
+      </header>
+
+      <section id="messages" class="messages">
+        <div class="welcome-card">
+          <h3>Welcome to QueryNest</h3>
+          <p>1. Upload one or more PDF files from the left sidebar.</p>
+          <p>2. Ask a question below — every answer includes exact page references.</p>
+        </div>
+      </section>
+
+      <form id="queryForm" class="query-bar">
+        <input
+          type="text"
+          id="questionInput"
+          placeholder="Ask something about your PDF..."
+          autocomplete="off"
+          required
+        />
+        <button type="submit" id="askBtn" class="btn-primary">Ask</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
