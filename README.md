@@ -37,3 +37,4 @@ pytest
 - `GET /api/documents` — List indexed documents
 - `DELETE /api/documents/{doc_id}` — Delete a document
 - `POST /api/query` — Ask a question and get an answer with page citations
+  
